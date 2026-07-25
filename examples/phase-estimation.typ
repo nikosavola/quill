@@ -2,7 +2,7 @@
 
 #quantum-circuit(
   setwire(0), lstick(align(center)[First register\ $t$ qubits], n: 4, pad: 10.5pt), 
-    lstick($|0〉$), setwire(1), $H$, 4, midstick($ dots $), ctrl(4), rstick($|0〉$), [\ ], 10pt,
+    lstick($|0〉$), setwire(1), $H$, 4, midstick($ dots $), ctrl(4), rstick($|0〉$), [\ ], 
   break-line(),
   setwire(0), phantom(width: 13pt), lstick($|0〉$), setwire(1), $H$, 2, ctrl(3), 1,
     midstick($ dots $), 1, rstick($|0〉$), [\ ],
