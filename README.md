@@ -130,11 +130,12 @@ Some show-off examples, loosely replicating figures from [Quantum Computation an
   <img alt="Quantum teleportation circuit" src="https://github.com/user-attachments/assets/f371d9b9-e9ab-49a7-a728-7fa94d958a8a">
 </div>
 <div align="center">
-  <img alt="Quantum circuit for phase estimation" src="https://github.com/user-attachments/assets/1864a436-b09b-46ac-961d-f13f3a4616ec">
+  <img alt="Quantum circuit for phase estimation" src="https://github.com/user-attachments/assets/f1bb6469-bc7e-42a5-83da-9413748506f9">
 </div>
 <div align="center">
   <img alt="Quantum fourier transformation circuit" src="https://github.com/user-attachments/assets/bdff94ce-f6b8-4d4b-98c1-5eb51d53e3bd">
 </div>
+
 
 ## Contribution
 
