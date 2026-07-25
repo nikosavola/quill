@@ -151,6 +151,7 @@ This package uses [tytanic](https://github.com/tingerrr/tytanic) for running [te
 ### v0.8.0
 - New repeat annotation `repeat-block`. 
 - Added `targ-y` gate for controlled-Y gates. 
+- New decoration `break-line` for marking the omission of wires.
 - Fixed multi-qubit `lstick`/`rstick` braces that broke with Typst 0.15 (again). 
 - Improved docs for slices and gategroups. 
 
