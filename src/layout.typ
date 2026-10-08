@@ -53,6 +53,7 @@
   let content = (item.draw-function)(item, draw-params)
   let hint = measure(content)
   hint.offset = auto
+  hint.content = content
   return hint
 }
 

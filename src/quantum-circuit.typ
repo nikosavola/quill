@@ -2,6 +2,7 @@
 #import "verifications.typ"
 #import "length-helpers.typ"
 #import "decorations.typ": *
+#import "draw-functions.typ": draw-boxed-gate, draw-unboxed-gate, draw-meter, draw-nwire
 
 #let signum(x) = if x >= 0. { 1. } else { -1. }
 
@@ -223,8 +224,20 @@
         x: x,
         y: y
       )
-      if gate.multi != none { multi-qubit-gates.push(gate-info) } 
-      else { single-qubit-gates.push(gate-info) }
+      if gate.multi != none {
+        multi-qubit-gates.push(gate-info)
+      } else {
+        // only the built-in draw-functions may reuse the measured content:
+        // custom ones can depend on draw-params keys that only exist at
+        // render time (like center-y-coords) or on being called twice
+        if "content" in size-hint and gate.draw-function in (
+          draw-boxed-gate,
+          draw-unboxed-gate,
+          draw-meter,
+          draw-nwire,
+        ) { gate-info.content = size-hint.content }
+        single-qubit-gates.push(gate-info)
+      }
       wire-ended = false
     } else if type(item) == int {
       wire-instructions.at(row).push((prev-col, col + item - 1))
@@ -528,7 +541,8 @@
     for gate-info in single-qubit-gates {
       let (gate, size, x, y) = gate-info
       let (dx, dy) = get-gate-pos(x, y, size)
-      let content = utility.get-content(gate, draw-params)
+      let content = gate-info.at("content", default: none)
+      if content == none { content = utility.get-content(gate, draw-params) }
 
       let (result, gate-bounds) = layout.place-with-labels(
         content, 
